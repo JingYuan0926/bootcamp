@@ -152,8 +152,23 @@ export default function Home() {
   // Decrement the counter
   const decrementCounter = () => sendInstruction(2);
   
-  // View the counter
-  const viewCounter = () => sendInstruction(3);
+  // View counter (using transaction - costs gas)
+  const viewCounterWithTransaction = () => sendInstruction(3);
+
+  // View counter (direct account read - free, no gas)
+  const viewCounterFree = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      await getCount();
+      console.log("Counter viewed for free (no transaction fee)");
+    } catch (err) {
+      setError(`Error viewing counter: ${err.message}`);
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   // Get the current count from the account
   const getCount = async () => {
@@ -226,7 +241,7 @@ export default function Home() {
               <p className="mb-2">Counter Account: {counterAccount.publicKey.toString()}</p>
               {count !== null && <p className="text-2xl font-bold mb-4">Count: {count}</p>}
               
-              <div className="flex space-x-2">
+              <div className="flex flex-wrap space-x-2 space-y-2 md:space-y-0">
                 <button 
                   onClick={incrementCounter}
                   disabled={loading}
@@ -242,11 +257,18 @@ export default function Home() {
                   Decrement
                 </button>
                 <button 
-                  onClick={viewCounter}
+                  onClick={viewCounterWithTransaction}
                   disabled={loading}
                   className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
                 >
-                  View Count
+                  View (With Fee)
+                </button>
+                <button 
+                  onClick={viewCounterFree}
+                  disabled={loading}
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
+                  View (Free)
                 </button>
               </div>
             </div>
