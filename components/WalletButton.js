@@ -11,9 +11,9 @@ const WalletMultiButtonDynamic = dynamic(
 const WalletButton = ({ onConnect }) => {
   const wallet = useWallet();
   
-  // Pass the wallet to the parent component when connected
+  // Pass the wallet to the parent component when connected (if onConnect is provided)
   useEffect(() => {
-    if (wallet.connected && wallet.publicKey) {
+    if (wallet.connected && wallet.publicKey && typeof onConnect === 'function') {
       onConnect(wallet);
     }
   }, [wallet.connected, wallet.publicKey, onConnect]);
