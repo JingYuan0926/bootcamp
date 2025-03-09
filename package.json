@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@filebase/sdk": "^1.0.6",
+    "@metaplex-foundation/mpl-core": "^1.2.0",
+    "@metaplex-foundation/umi": "^1.1.1",
+    "@metaplex-foundation/umi-bundle-defaults": "^1.1.1",
+    "@metaplex-foundation/umi-signer-wallet-adapters": "^1.1.1",
     "@nextui-org/react": "^2.6.11",
     "@project-serum/anchor": "^0.26.0",
     "@solana/spl-token": "^0.4.13",
@@ -19,6 +24,7 @@
     "@solana/web3.js": "^1.98.0",
     "borsh": "^2.0.0",
     "buffer": "^6.0.3",
+    "framer-motion": "^12.4.10",
     "next": "15.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
