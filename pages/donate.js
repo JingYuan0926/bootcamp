@@ -3,15 +3,12 @@ import { Connection, PublicKey, clusterApiUrl, LAMPORTS_PER_SOL, SystemProgram }
 import { Program, AnchorProvider, BN, web3 } from "@project-serum/anchor";
 import { useWallet } from '@solana/wallet-adapter-react';
 import { Button, Card, CardBody, Input, Progress, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/react";
-// Import IDL with support for both named and default exports
-import * as IDLImport from "../smart contract/day2/donate/idl.js";
+// Import IDL directly as default export
+import IDL from "../smart contract/day2/donate/idl.js";
 import { FiExternalLink } from 'react-icons/fi';
 import dynamic from 'next/dynamic';
 
 const PROGRAM_ID = new PublicKey("HPHXtE7dhKP8R1iANQeTZiSFpYcpzmqjBz1CTTunfj4K");
-
-// Try to get IDL from either default or named export
-const IDL = IDLImport.default || IDLImport.IDL;
 
 // Import Header component with client-side only rendering
 const Header = dynamic(() => import('../components/Header.js'), { ssr: false });
