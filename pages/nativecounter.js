@@ -3,7 +3,7 @@ import { Connection, PublicKey, Transaction, TransactionInstruction, Keypair, Sy
 import { Buffer } from "buffer";
 
 // Program ID for your native counter program
-const PROGRAM_ID = "CV3nhk4ovkysVB6Wkngf5VH6eNfMwJxr6qfizhpak9nP";
+const PROGRAM_ID = "BZyom31cPHJMb1MMdwa8guiAnV8k6GZqkxrridx1U51J";
 
 // Native Counter class and serialization
 class Counter {
