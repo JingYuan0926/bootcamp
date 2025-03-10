@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("6JhDDhm13kv3QBADyFmYbGivQSbPDHEmN3Ex9Rks1ctC"); // Replace with your program ID
+declare_id!("11111111111111111111111111111111"); // Playground will replace this
 
 #[program]
 pub mod counter {
